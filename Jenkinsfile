@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('NPM Install') {
             steps {
-            bat 'npm install'
+                bat 'npm install'
             }
         }
         stage('Parallel Execution') {
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-            bat 'Deploy to Staging'
+                echo 'Deploy to Staging'
             }
         }
         stage('Approve for Production Deployment') {
@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Deploy to Production') {
             steps {
-            bat 'Deploy to Production'
+                echo 'Deploy to Production'
             }
         }
     }
