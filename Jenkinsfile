@@ -6,9 +6,16 @@ pipeline {
             bat 'npm install'
             }
         }
-        stage('Execute Tests') {
-            steps {
-            bat 'npm test'
+        parallel {
+            stage('Run npm audit tests') {
+                steps {
+                    bat 'npm audit'
+                }
+            }
+            stage('Execute Tests') {
+                steps {
+                    bat 'npm test'
+                }
             }
         }
     }
