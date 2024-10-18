@@ -20,5 +20,20 @@ pipeline {
                 }
             }
         }
+        stage('Deploy to Staging') {
+            steps {
+            bat 'Deploy to Staging'
+            }
+        }
+        stage('Approve for Production Deployment') {
+            steps {
+                input message 'Approve deployment to Production?', ok: 'Deploy to Production'
+            }
+        }
+        stage('Deploy to Production') {
+            steps {
+            bat 'Deploy to Production'
+            }
+        }
     }
 }
